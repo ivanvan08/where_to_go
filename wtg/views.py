@@ -1,5 +1,6 @@
 from copy import deepcopy
 
+from django.http import Http404
 from django.shortcuts import render
 
 from .data import DEFAULT_PLACES, rating_stars
@@ -15,3 +16,16 @@ def place_list(request):
     places = get_places(request)
     items = [{**place, "stars": rating_stars(place["rating"])} for place in places]
     return render(request, "wtg/place_list.html", {"places": items})
+
+
+def place_detail(request, place_id):
+    places = get_places(request)
+    place = None
+    for p in places:
+        if p["id"] == place_id:
+            place = p
+            break
+    if place is None:
+        raise Http404("Місце не знайдено")
+    place = {**place, "stars": rating_stars(place["rating"])}
+    return render(request, "wtg/place_detail.html", {"place": place})

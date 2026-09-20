@@ -1,0 +1,9 @@
+{% extends "wtg/base.html" %}
+{% block content %}
+  <h1>{{ place.name }}</h1>
+  <p>{{ place.description }}</p>
+  <p>{{ place.kind }}</p>
+  <p>{{ place.location|default:"Secret place" }}</p>
+  <p>{{ place.stars }}</p>
+  <p>{{ place.created }}</p>
+{% endblock %}
