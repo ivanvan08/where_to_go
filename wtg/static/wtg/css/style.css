@@ -135,6 +135,15 @@ h1::after {
   max-width: 38rem;
 }
 
+.summary a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.summary a:hover {
+  color: var(--accent);
+}
+
 .meta {
   display: flex;
   flex-wrap: wrap;

@@ -2,7 +2,9 @@
 <div class="place">
   <img src="{% static 'wtg/img/place.jpg' %}" alt="{{ place.name }}">
   <h2><a href="{% url 'place_detail' place.id %}">{{ place.name }}</a></h2>
-  <p class="summary">{{ place.description|truncatewords:10 }}</p>
+  <p class="summary">
+    <a href="{% url 'place_detail' place.id %}">{{ place.description|truncatewords:10 }}</a>
+  </p>
   <div class="meta">
     <span>{{ place.kind }}</span>
     <span>{{ place.location|default:"Secret place" }}</span>
