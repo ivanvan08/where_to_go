@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Where to go?</title>
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'place_list' %}">Місця</a>
+      <a href="">Головна</a>
+      <a href="">Додати потім</a>
+    </header>
+    {% block content %}{% endblock %}
+    <footer>
+      <p>Made by Ivan Ulianchenko, 2026</p>
+    </footer>
+  </body>
+</html>
