@@ -3,7 +3,7 @@ from copy import deepcopy
 from django.http import Http404
 from django.shortcuts import render
 
-from .data import DEFAULT_PLACES, with_stars
+from .data import DEFAULT_PLACES, pick_random, with_stars
 
 
 def get_places(request):
@@ -29,3 +29,11 @@ def place_detail(request, place_id):
         raise Http404("Місце не знайдено")
     place = with_stars(place)
     return render(request, "wtg/place_detail.html", {"place": place})
+
+
+def home(request):
+    place = None
+    if request.GET.get("random"):
+        places = get_places(request)
+        place = with_stars(pick_random(places))
+    return render(request, "wtg/home.html", {"place": place})

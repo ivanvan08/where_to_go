@@ -1,0 +1,11 @@
+{% extends "wtg/base.html" %}
+{% block content %}
+  <h1>Where to go?</h1>
+  <p>Список моїх улюблених місць.</p>
+  <form method="get" action="{% url 'home' %}">
+    <button type="submit" name="random" value="1">Куди піти сьогодні?</button>
+  </form>
+  {% if place %}
+    {% include "wtg/place_preview.html" %}
+  {% endif %}
+{% endblock %}
