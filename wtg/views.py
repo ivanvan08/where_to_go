@@ -3,7 +3,7 @@ from copy import deepcopy
 from django.http import Http404
 from django.shortcuts import render
 
-from .data import DEFAULT_PLACES, rating_stars
+from .data import DEFAULT_PLACES, with_stars
 
 
 def get_places(request):
@@ -14,7 +14,7 @@ def get_places(request):
 
 def place_list(request):
     places = get_places(request)
-    items = [{**place, "stars": rating_stars(place["rating"])} for place in places]
+    items = [with_stars(place) for place in places]
     return render(request, "wtg/place_list.html", {"places": items})
 
 
@@ -27,5 +27,5 @@ def place_detail(request, place_id):
             break
     if place is None:
         raise Http404("Місце не знайдено")
-    place = {**place, "stars": rating_stars(place["rating"])}
+    place = with_stars(place)
     return render(request, "wtg/place_detail.html", {"place": place})
