@@ -7,7 +7,7 @@
     <header>
       <a href="{% url 'place_list' %}">Місця</a>
       <a href="{% url 'home' %}">Головна</a>
-      <a href="">Додати потім</a>
+      <a href="{% url 'place_add' %}">Додати місце</a>
     </header>
     {% block content %}{% endblock %}
     <footer>
