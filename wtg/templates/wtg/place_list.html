@@ -1,0 +1,7 @@
+{% extends "wtg/base.html" %}
+{% block content %}
+  <h1>Мої улюблені місця</h1>
+  {% for place in places %}
+    {% include "wtg/place_preview.html" %}
+  {% endfor %}
+{% endblock %}

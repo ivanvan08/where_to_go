@@ -1,0 +1,15 @@
+{% extends "wtg/base.html" %}
+{% load static %}
+{% block content %}
+  <h1>{{ place.name }}</h1>
+  <div class="detail">
+    <img src="{% static 'wtg/img/place.jpg' %}" alt="{{ place.name }}">
+    <div class="meta">
+      <span>{{ place.kind }}</span>
+      <span>{{ place.location|default:"Secret place" }}</span>
+      <span class="stars">{{ place.stars }}</span>
+      <span>{{ place.created }}</span>
+    </div>
+    <p class="body">{{ place.description }}</p>
+  </div>
+{% endblock %}
