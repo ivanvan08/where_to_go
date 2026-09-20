@@ -1,9 +1,12 @@
-<div>
+{% load static %}
+<div class="place">
+  <img src="{% static 'wtg/img/place.jpg' %}" alt="{{ place.name }}">
   <h2><a href="{% url 'place_detail' place.id %}">{{ place.name }}</a></h2>
-  <h2>{{ place.name }}</h2>
-  <p>{{ place.description|truncatewords:10 }}</p>
-  <p>{{ place.kind }}</p>
-  <p>{{ place.location|default:"Secret place" }}</p>
-  <p>{{ place.stars }}</p>
-  <p>{{ place.created }}</p>
+  <p class="summary">{{ place.description|truncatewords:10 }}</p>
+  <div class="meta">
+    <span>{{ place.kind }}</span>
+    <span>{{ place.location|default:"Secret place" }}</span>
+    <span class="stars">{{ place.stars }}</span>
+    <span>{{ place.created }}</span>
+  </div>
 </div>
