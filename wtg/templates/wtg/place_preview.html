@@ -1,0 +1,8 @@
+<div>
+  <h2>{{ place.name }}</h2>
+  <p>{{ place.description|truncatewords:10 }}</p>
+  <p>{{ place.kind }}</p>
+  <p>{{ place.location|default:"Secret place" }}</p>
+  <p>{{ place.stars }}</p>
+  <p>{{ place.created }}</p>
+</div>

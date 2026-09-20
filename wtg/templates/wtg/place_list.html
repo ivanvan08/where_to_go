@@ -2,9 +2,6 @@
 {% block content %}
   <h1>Мої улюблені місця</h1>
   {% for place in places %}
-    <div>
-      <h2>{{ place.name }}</h2>
-      <p>{{ place.stars }}</p>
-    </div>
+    {% include "wtg/place_preview.html" %}
   {% endfor %}
 {% endblock %}
