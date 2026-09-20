@@ -1,3 +1,5 @@
+import random
+
 DEFAULT_PLACES = [
     {
         "id": 1,
@@ -43,5 +45,13 @@ DEFAULT_PLACES = [
 ]
 
 
+def with_stars(place):
+    return {**place, "stars": rating_stars(place["rating"])}
+
+
 def rating_stars(rating):
     return "★" * rating + ("☆" * (5 - rating))
+
+
+def pick_random(places):
+    return random.choices(places, weights=[p["rating"] for p in places])[0]
